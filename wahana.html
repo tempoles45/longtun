@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahana</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/Longtun.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/Longtun.png" alt="Longtun Logo" class="logo me-2">
+                <span class="fw-bold">LONGTUN WATERPARK</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="wahana.html">Wahana</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fasilitas.html">Fasilitas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero d-flex align-items-center" style="background: url(images/banner.jpg) no-repeat center/cover;">
+        <div class="container text-center text-black" data-aos="fade-up">
+            <h1 class="display-4 fw-bold">Wahana Longtun Waterpark</h1>
+            <p class="lead">Experience fun, relaxation, and great food in one place!</p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container pt-3">
+            <div class="container text-center" data-aos="fade-up">
+                <h4 class="fw-bold">Wahana <span class="gradient-text">Longtun Waterpark</span></h4>
+                <h2>Jelajahi wahana di Longtun Waterpark dan temukan keseruannya</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="attractions" class="py-5">
+        <div class="container">
+            <div class="row text-center" data-aos="fade-up">
+                <!-- wahana arus -->
+                <div class="col-md-4">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalKolamArus">
+                        <div class="card">
+                            <img src="images/arus.jpg" class="card-img-top" alt="logo">
+                            <div class="card-body">
+                                <h5 class="card-title">Kolam Arus</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- wahana waterboom -->
+                <div class="col-md-4">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalwaterboom">
+                        <div class="card">
+                            <img src="images/DJI_0214.JPG" class="card-img-top" alt="logo">
+                            <div class="card-body">
+                                <h5 class="card-title">Waterboom</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- wahana khusus anak -->
+                <div class="col-md-4">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalanak">
+                        <div class="card">
+                            <img src="images/iconwp.jpg" class="card-img-top" alt="logo">
+                            <div class="card-body">
+                                <h5 class="card-title">Kolam Khusus Anak</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <header class="hero d-flex align-items-center">
+        <div class="container text-center text-black" data-aos="fade-right">
+            <h1 class="display-6 fw-bold">Jangan buang waktumu,jika<br>ada pertanyaan hubungi kami <br>SEKARANG!!!</h1>
+            <p >Ingin berkunjung dan berwisata bersama teman sekantor atau teman<br>sekolah, kontak marketing kami</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">Hubungi Kami</a>
+        </div>
+    </header>
+
+
+<!-- Modal Kolam Arus -->
+<div class="modal fade" id="modalKolamArus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kolam Arus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="images/arus.jpg" class="img-fluid" alt="Kolam Arus">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Keterangan tentang Kolam Arus...</p>
+                        <p>Kolam Arus merupakan fasilitas rekreasi air yang spektakuler dan menarik, menawarkan pengalaman berenang yang tak terlupakan sepanjang 60 meter mengelilingi Longtun Longtun Waterpark. Dengan desain yang unik dan fasilitas yang lengkap, kolam ini cocok untuk keluarga, pecinta olahraga air dan mereka yang mencari kesenangan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Waterboom -->
+<div class="modal fade" id="modalwaterboom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Waterboom</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="images/DJI_0214.JPG" class="img-fluid" alt="Kolam Arus">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Keterangan tentang waterboom</p>
+                        <p>Waterboom adalah destinasi wisata air yang menawarkan pengalaman berenang dan bermain air yang menyenangkan untuk keluarga dan pecinta olahraga air. Dengan fasilitas yang lengkap dan keamanan yang ketat, Waterboom menjadi pilihan ideal untuk liburan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal kolam khusus anak -->
+<div class="modal fade" id="modalanak" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kolam Khusus Anak</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="images/iconwp.jpg" class="img-fluid" alt="Kolam Arus">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Keterangan tentang Khusus Anak</p>
+                        <p>Kolam Khusus Anak dirancang khusus untuk anak-anak dengan tujuan menyediakan lingkungan bermain yang aman dan menyenangkan. Kolam ini menawarkan pengalaman berenang dan bermain air yang tak terlupakan bagi anak-anak.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Logo Section -->
+                <div class="col-md-4 mb-3 text-center text-md-start">
+                    <img src="images//Longtun.png" alt="Logo" class="footer-logo mb-3" />
+                    <p>Longtun Waterpark, wahana air terbesar di Nusa Tenggara Barat. Nikmati pengalaman seru bersama keluarga!</p>
+                </div>
+    
+                <!-- Sosial Media Section -->
+                <div class="col-md-4 mb-3 text-center">
+                    <h5 class="mb-3">Ikuti Kami</h5>
+                    <div>
+                        <a href="https://www.facebook.com" target="_blank" class="text-light me-3">
+                            <i class="bi bi-facebook" style="font-size: 3rem;"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-light me-3">
+                            <i class="bi bi-instagram" style="font-size: 3rem;"></i>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" class="text-light">
+                            <i class="bi bi-tiktok" style="font-size: 3rem;"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Alamat Section -->
+                <div class="col-md-4 text-center text-md-start">
+                    <h5 class="mb-3">Alamat</h5>
+                    <p>
+                        Jl.Bung Hatta Kopang Rembiga,<br>
+                        Kopang, Central Lombok Regency, <br>
+                        West Nusa Tenggara Barat 83553
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="mb-0">&copy; 2024 Longtun Waterpark. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>
