@@ -8,7 +8,7 @@ window.addEventListener('scroll', function () {
     }
   });
   
-AOS.init({
-    duration: 1000, // Durasi animasi dalam milidetik
-    once: false // Animasi terjadi
-});
+// AOS.init({
+//     duration: 1000, // Durasi animasi dalam milidetik
+//     once: false // Animasi terjadi
+// });
