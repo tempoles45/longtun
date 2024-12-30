@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wahana</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Chewy&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/Longtun.png" type="image/x-icon">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/Longtun.png" alt="Longtun Logo" class="logo">
@@ -38,14 +39,14 @@
     <header class="hero d-flex align-items-center" style="background: url(images/iconwp.jpg) no-repeat center/cover;">
         <div class="container text-center text-black" data-aos="fade-up">
             <h1 class="display-4 fw-bold">Wahana Longtun Waterpark</h1>
-            <p class="lead">Experience fun, relaxation, and great food in one place!</p>
+            <p class="lead">Nikmati keseruan, relaksasi, dan hidangan lezat dalam satu tempat!</p>
         </div>
     </header>
 
     <section class="py-5">
         <div class="container pt-3">
             <div class="container text-center" data-aos="fade-up">
-                <h4 class="fw-bold">Wahana <span class="gradient-text">Longtun Waterpark</span></h4>
+                <div class="neon-text">ayo ke Longtun !</div>
                 <h2>Jelajahi wahana di Longtun Waterpark dan temukan keseruannya</h2>
             </div>
         </div>
@@ -83,7 +84,7 @@
                         <div class="card">
                             <img src="images/iconwp.jpg" class="card-img-top" alt="logo">
                             <div class="card-body">
-                                <h5 class="card-title">Kolam Khusus Anak</h5>
+                                <h5 class="card-title">Kolam Anak</h5>
                             </div>
                         </div>
                     </a>
@@ -92,15 +93,6 @@
         </div>
     </section>
     
-    <header class="hero d-flex align-items-center">
-        <div class="container text-center text-black" data-aos="fade-right">
-            <h1 class="display-6 fw-bold">Jangan buang waktumu,jika<br>ada pertanyaan hubungi kami <br>SEKARANG!!!</h1>
-            <p >Ingin berkunjung dan berwisata bersama teman sekantor atau teman<br>sekolah, kontak marketing kami</p>
-            <a href="contact.html" class="btn btn-primary btn-lg">Hubungi Kami</a>
-        </div>
-    </header>
-
-
 <!-- Modal Kolam Arus -->
 <div class="modal fade" id="modalKolamArus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -181,6 +173,13 @@
     </div>
 </div>
 
+    <header class="hero d-flex align-items-center">
+        <div class="container text-center text-black">
+            <div class="neon-text mb-4">ayo ke Longtun !</div>
+            <a href="contact.html" class="btn btn-primary btn-lg">Hubungi Kami</a>
+        </div>
+    </header>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
@@ -222,6 +221,7 @@
             </div>
         </div>
     </footer>
+    <button class="back-to-top" onclick="scrollToTop()"><i class="bi bi-box-arrow-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script/script.js"></script>
