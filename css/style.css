@@ -356,3 +356,9 @@ height: 330px;
     text-shadow: 0 0 3px #ff1500, 0 0 7px #ff0000;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .neon-text {
+    font-size: 6rem; /* Ubah ukuran font menjadi 6rem */
+  }
+}
