@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pemesanan Tiket Waterpark</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .card {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/Longtun.png" alt="Longtun Logo" class="logo">
+                <div class="text-center">
+                    <h2 class="fw-bold mb-0 text-primary">LONGTUN</h2>
+                    <span style="font-size: medium;">WATERPARK</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="pesantiket.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wahana.html">Wahana</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fasilitas.html">Fasilitas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white text-center py-3">
+                        <h2 class="mb-0">
+                            <i class="bi bi-water me-2"></i>Pemesanan Tiket Waterpark
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="ticketForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nama" class="form-label">
+                                        <i class="bi bi-person me-2"></i>Nama Lengkap
+                                    </label>
+                                    <input type="text" class="form-control" id="nama" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="telepon" class="form-label">
+                                        <i class="bi bi-phone me-2"></i>Nomor Telepon
+                                    </label>
+                                    <input type="tel" class="form-control" id="telepon" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="jenisTiket" class="form-label">
+                                        <i class="bi bi-ticket-detailed me-2"></i>Kategori Tiket
+                                    </label>
+                                    <select class="form-select" id="jenisTiket" required>
+                                        <option value="">Pilih Kategori</option>
+                                        <option value="Anak">Anak (3 - 12 tahun) - Rp 25.000</option>
+                                        <option value="Dewasa">Dewasa ( >12 tahun) - Rp 35.000</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="jumlahTiket" class="form-label">
+                                        <i class="bi bi-hash me-2"></i>Jumlah Tiket
+                                    </label>
+                                    <input type="number" class="form-control" id="jumlahTiket" min="1" max="10" required>
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="tanggalKunjungan" class="form-label">
+                                        <i class="bi bi-calendar-check me-2"></i>Tanggal Kunjungan
+                                    </label>
+                                    <input type="date" class="form-control" id="tanggalKunjungan" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <p class="text-danger">
+                                        <i class="bi bi-exclamation-triangle-fill"></i>
+                                        <strong>Peringatan!</strong><br>Tiket hanya berlaku selama <strong>3 Hari Setelah pemesanan</strong> dan  <strong>tidak dapat di-return atau di-refund.</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100 py-2">
+                                <i class="bi bi-check-circle me-2"></i>Pesan Sekarang
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk konfirmasi pembayaran -->
+<div class="modal fade" id="konfirmasiPembayaranModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Informasi Pembayaran</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Total Pembayaran</h4>
+                <p class="h3 text-primary" id="totalPembayaran"></p>
+                <hr>
+                <div class="alert alert-info">
+                    <h5>Instruksi Pembayaran:</h5>
+                    <p class="mb-2">1. Transfer ke rekening berikut:</p>
+                    <p class="mb-3">
+                        <strong>Bank BCA</strong><br>
+                        No. Rekening: 1234567890<br>
+                        A/n: PT Waterpark Indonesia
+                    </p>
+                    <p class="mb-2">2. Klik tombol "Kirim Bukti Transfer" di bawah</p>
+                    <p class="mb-2">3. Kirim bukti transfer melalui WhatsApp</p>
+                    <p class="mb-0">4. Tunggu CS mengirimkan link tiket Anda</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-success" id="kirimBuktiBtn">
+                    <i class="bi bi-whatsapp me-2"></i>Kirim Bukti Transfer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Logo Section -->
+                <div class="col-md-4 mb-3 text-center text-md-start">
+                    <img src="images/Longtun.png" alt="Logo" class="footer-logo mb-3" />
+                    <p>Longtun Waterpark, wahana air terbesar di Nusa Tenggara Barat. Nikmati pengalaman seru bersama keluarga!</p>
+                </div>
+    
+                <!-- Sosial Media Section -->
+                <div class="col-md-4 mb-3 text-center">
+                    <h5 class="mb-3">Ikuti Kami</h5>
+                    <div>
+                        <a href="https://www.facebook.com" target="_blank" class="text-light me-3">
+                            <i class="bi bi-facebook" style="font-size: 3rem;"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-light me-3">
+                            <i class="bi bi-instagram" style="font-size: 3rem;"></i>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" class="text-light">
+                            <i class="bi bi-tiktok" style="font-size: 3rem;"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Alamat Section -->
+                <div class="col-md-4 text-center text-md-start">
+                    <h5 class="mb-3">Alamat</h5>
+                    <p>
+                        Jl.Bung Hatta Kopang Rembiga,<br>
+                        Kopang, Central Lombok Regency, <br>
+                        West Nusa Tenggara Barat 83553
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="mb-0">&copy; 2024 Longtun Waterpark. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script/script.js"></script>
+
+    <!-- Bootstrap JS dan Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    let ticketCounter = localStorage.getItem('waterParkTicketCounter') || 1000;
+
+    // Generate sequential ticket number
+    function generateTicketNumber() {
+        ticketCounter++;
+        localStorage.setItem('waterParkTicketCounter', ticketCounter);
+        return `WP-${ticketCounter}`;
+    }
+
+    // Hitung total harga
+    function hitungTotalHarga(jenisTiket, jumlahTiket) {
+        const hargaTiket = {
+            'Anak': 25000,
+            'Dewasa': 35000
+        };
+        
+        const hargaDasar = hargaTiket[jenisTiket] * jumlahTiket;
+        
+        return (hargaDasar).toLocaleString('id-ID');
+    }
+
+    // Hitung masa berlaku
+    function hitungMasaBerlaku(tanggalKunjungan) {
+        const kunjungan = new Date(tanggalKunjungan);
+        const masaBerlaku = new Date(kunjungan);
+        masaBerlaku.setDate(kunjungan.getDate() + 30); // Masa berlaku 30 hari
+        
+        return masaBerlaku.toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+    }
+
+    // Set valid dates
+    function setValidDates() {
+        const kunjunganInput = document.getElementById('tanggalKunjungan');
+        const today = new Date();
+        kunjunganInput.min = today.toISOString().split('T')[0];
+
+        // Update masa berlaku when date changes
+        kunjunganInput.addEventListener('change', function() {
+            const masaBerlaku = hitungMasaBerlaku(this.value);
+            document.getElementById('masaBerlaku').value = masaBerlaku;
+        });
+    }
+
+    // Form elements
+    const form = document.getElementById('ticketForm');
+    const tanggalKunjunganInput = document.getElementById('tanggalKunjungan');
+    const masaBerlakuInput = document.getElementById('masaBerlaku');
+
+    // Set initial ticket setup
+    setValidDates();
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const nama = document.getElementById('nama').value;
+        const telepon = document.getElementById('telepon').value;
+        const jenisTiket = document.getElementById('jenisTiket').value;
+        const jumlahTiket = document.getElementById('jumlahTiket').value;
+        const tanggalKunjungan = tanggalKunjunganInput.value;
+        const paketWahana = document.getElementById('paketWahana').value;
+        const nomorTiket = generateTicketNumber();
+        const totalHarga = hitungTotalHarga(jenisTiket, jumlahTiket, paketWahana);
+        const masaBerlaku = hitungMasaBerlaku(tanggalKunjungan);
+
+        // Update modal konfirmasi pembayaran
+        document.getElementById('totalPembayaran').textContent = `Rp ${totalHarga}`;
+        
+        // Modal konfirmasi pembayaran
+        const pembayaranModal = new bootstrap.Modal(document.getElementById('konfirmasiPembayaranModal'));
+        pembayaranModal.show();
+
+        // Event listener untuk tombol kirim bukti transfer
+        document.getElementById('kirimBuktiBtn').onclick = function() {
+            // Format tanggal untuk pesan WhatsApp
+            const formattedDate = new Date(tanggalKunjungan).toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            // Set WhatsApp message untuk kirim bukti transfer
+            const waMessage = `Halo%20CS%20Waterpark%2C%0A%0A*KONFIRMASI%20PEMBAYARAN%20TIKET*%0A%0A*Detail%20Pemesanan:*%0A━━━━━━━━━━━━━━━%0A▪️%20Nama:%20${encodeURIComponent(nama)}%0A▪️%20No.%20Telepon:%20${encodeURIComponent(telepon)}%0A▪️%20No.%20Tiket:%20${nomorTiket}%0A▪️%20Kategori:%20${encodeURIComponent(jenisTiket)}%0A▪️%20Jumlah:%20${jumlahTiket}%20tiket%0A▪️%20Tanggal:%20${encodeURIComponent(formattedDate)}%0A▪️%20Paket:%20${encodeURIComponent(paketWahana)}%0A▪️%20Total:%20Rp%20${totalHarga}%0A━━━━━━━━━━━━━━━%0A%0A💳%20*Pembayaran%20ke:*%0ABank%20BCA%0ANo:%201234567890%0AA/n:%20PT%20Waterpark%20Indonesia%0A%0A📎%20[Mohon%20lampirkan%20bukti%20transfer%20Anda]`;
+            const waNumber = '6285163561411'; // Ganti dengan nomor CS Waterpark
+            const whatsappLink = `https://wa.me/${waNumber}?text=${waMessage}`;
+            
+            // Buka WhatsApp
+            window.open(whatsappLink, '_blank');
+            
+            // Tutup modal pembayaran
+            pembayaranModal.hide();
+        };
+    });
+});
+    </script>
+</body>
+</html>
