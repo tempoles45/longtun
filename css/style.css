@@ -335,7 +335,7 @@ height: 330px;
 
  /* Neon Text Styling */
 .neon-text {
-  font-size: 12rem; /* Ukuran teks */
+  font-size: 9rem; /* Ukuran teks */
   transition: 0.3s ease-in-out;
   font-style: italic;
   font-family: 'Chewy', cursive; /* Font untuk teks */
