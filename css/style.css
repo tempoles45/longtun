@@ -335,7 +335,7 @@ height: 330px;
 
  /* Neon Text Styling */
 .neon-text {
-  font-size: 9rem; /* Ukuran teks */
+  font-size: 8rem; /* Ukuran teks */
   transition: 0.3s ease-in-out;
   font-style: italic;
   font-family: 'Chewy', cursive; /* Font untuk teks */
@@ -358,7 +358,28 @@ height: 330px;
 }
 
 @media screen and (max-width: 768px) {
+  .hero {
+    background-position: center center;
+    background-size: cover;
+  }
+
   .neon-text {
     font-size: 6rem; /* Ubah ukuran font menjadi 6rem */
   }
+  
+}
+/* Untuk perangkat dengan layar sangat kecil */
+@media screen and (max-width: 480px) {
+  .hero {
+    background-position: center center;
+    background-size: cover;
+  }
+  .custom-navbar {
+    padding: 0 2px;
+  }
+  
+  .neon-text {
+    font-size: 4rem; /* Ubah ukuran font menjadi 6rem */
+  }
+  
 }
