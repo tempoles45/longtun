@@ -203,104 +203,80 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    let ticketCounter = localStorage.getItem('waterParkTicketCounter') || 1000;
-
-    // Generate sequential ticket number
-    function generateTicketNumber() {
-        ticketCounter++;
-        localStorage.setItem('waterParkTicketCounter', ticketCounter);
-        return `WP-${ticketCounter}`;
-    }
-
-    // Hitung total harga
-    function hitungTotalHarga(jenisTiket, jumlahTiket) {
-        const hargaTiket = {
-            'Anak': 25000,
-            'Dewasa': 35000
-        };
+            let ticketCounter = localStorage.getItem('waterParkTicketCounter') || 1000;
         
-        const hargaDasar = hargaTiket[jenisTiket] * jumlahTiket;
+            // Generate sequential ticket number
+            function generateTicketNumber() {
+                ticketCounter++;
+                localStorage.setItem('waterParkTicketCounter', ticketCounter);
+                return `WP-${ticketCounter}`;
+            }
         
-        return (hargaDasar).toLocaleString('id-ID');
-    }
-
-    // Hitung masa berlaku
-    function hitungMasaBerlaku(tanggalKunjungan) {
-        const kunjungan = new Date(tanggalKunjungan);
-        const masaBerlaku = new Date(kunjungan);
-        masaBerlaku.setDate(kunjungan.getDate() + 30); // Masa berlaku 30 hari
+            // Hitung total harga
+            function hitungTotalHarga(jenisTiket, jumlahTiket) {
+                const hargaTiket = {
+                    'Anak': 25000,
+                    'Dewasa': 35000
+                };
+                
+                return (hargaTiket[jenisTiket] * jumlahTiket).toLocaleString('id-ID');
+            }
         
-        return masaBerlaku.toLocaleDateString('id-ID', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        });
-    }
-
-    // Set valid dates
-    function setValidDates() {
-        const kunjunganInput = document.getElementById('tanggalKunjungan');
-        const today = new Date();
-        kunjunganInput.min = today.toISOString().split('T')[0];
-
-        // Update masa berlaku when date changes
-        kunjunganInput.addEventListener('change', function() {
-            const masaBerlaku = hitungMasaBerlaku(this.value);
-            document.getElementById('masaBerlaku').value = masaBerlaku;
-        });
-    }
-
-    // Form elements
-    const form = document.getElementById('ticketForm');
-    const tanggalKunjunganInput = document.getElementById('tanggalKunjungan');
-    const masaBerlakuInput = document.getElementById('masaBerlaku');
-
-    // Set initial ticket setup
-    setValidDates();
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+            // Set valid dates
+            function setValidDates() {
+                const kunjunganInput = document.getElementById('tanggalKunjungan');
+                const today = new Date();
+                kunjunganInput.min = today.toISOString().split('T')[0];
+            }
         
-        // Collect form data
-        const nama = document.getElementById('nama').value;
-        const telepon = document.getElementById('telepon').value;
-        const jenisTiket = document.getElementById('jenisTiket').value;
-        const jumlahTiket = document.getElementById('jumlahTiket').value;
-        const tanggalKunjungan = tanggalKunjunganInput.value;
-        const paketWahana = document.getElementById('paketWahana').value;
-        const nomorTiket = generateTicketNumber();
-        const totalHarga = hitungTotalHarga(jenisTiket, jumlahTiket, paketWahana);
-        const masaBerlaku = hitungMasaBerlaku(tanggalKunjungan);
-
-        // Update modal konfirmasi pembayaran
-        document.getElementById('totalPembayaran').textContent = `Rp ${totalHarga}`;
+            // Form elements
+            const form = document.getElementById('ticketForm');
         
-        // Modal konfirmasi pembayaran
-        const pembayaranModal = new bootstrap.Modal(document.getElementById('konfirmasiPembayaranModal'));
-        pembayaranModal.show();
-
-        // Event listener untuk tombol kirim bukti transfer
-        document.getElementById('kirimBuktiBtn').onclick = function() {
-            // Format tanggal untuk pesan WhatsApp
-            const formattedDate = new Date(tanggalKunjungan).toLocaleDateString('id-ID', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
+            // Set initial ticket setup
+            setValidDates();
+        
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Collect form data
+                const nama = document.getElementById('nama').value;
+                const telepon = document.getElementById('telepon').value;
+                const jenisTiket = document.getElementById('jenisTiket').value;
+                const jumlahTiket = document.getElementById('jumlahTiket').value;
+                const tanggalKunjungan = document.getElementById('tanggalKunjungan').value;
+                const nomorTiket = generateTicketNumber();
+                const totalHarga = hitungTotalHarga(jenisTiket, jumlahTiket);
+        
+                // Update modal konfirmasi pembayaran
+                document.getElementById('totalPembayaran').textContent = `Rp ${totalHarga}`;
+        
+                // Modal konfirmasi pembayaran
+                const pembayaranModal = new bootstrap.Modal(document.getElementById('konfirmasiPembayaranModal'));
+                pembayaranModal.show();
+        
+                // Event listener untuk tombol kirim bukti transfer
+                document.getElementById('kirimBuktiBtn').onclick = function() {
+                    // Format tanggal untuk pesan WhatsApp
+                    const formattedDate = new Date(tanggalKunjungan).toLocaleDateString('id-ID', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                    });
+        
+                    // Set WhatsApp message untuk kirim bukti transfer
+                    const waMessage = `Halo%20CS%20Waterpark%2C%0A%0A*KONFIRMASI%20PEMBAYARAN%20TIKET*%0A%0A*Detail%20Pemesanan:*%0A━━━━━━━━━━━━━━━%0A▪️%20Nama:%20${encodeURIComponent(nama)}%0A▪️%20No.%20Telepon:%20${encodeURIComponent(telepon)}%0A▪️%20No.%20Tiket:%20${nomorTiket}%0A▪️%20Kategori:%20${encodeURIComponent(jenisTiket)}%0A▪️%20Jumlah:%20${jumlahTiket}%20tiket%0A▪️%20Tanggal:%20${encodeURIComponent(formattedDate)}%0A▪️%20Total:%20Rp%20${totalHarga}%0A━━━━━━━━━━━━━━━%0A%0A💳%20*Pembayaran%20ke:*%0ABank%20BCA%0ANo:%201234567890%0AA/n:%20PT%20Waterpark%20Indonesia%0A%0A📎%20[Mohon%20lampirkan%20bukti%20transfer%20Anda]`;
+                    const waNumber = '6285163561411'; // Ganti dengan nomor CS Waterpark
+                    const whatsappLink = `https://wa.me/${waNumber}?text=${waMessage}`;
+                    
+                    // Buka WhatsApp
+                    window.open(whatsappLink, '_blank');
+                    
+                    // Tutup modal pembayaran
+                    pembayaranModal.hide();
+                };
             });
-
-            // Set WhatsApp message untuk kirim bukti transfer
-            const waMessage = `Halo%20CS%20Waterpark%2C%0A%0A*KONFIRMASI%20PEMBAYARAN%20TIKET*%0A%0A*Detail%20Pemesanan:*%0A━━━━━━━━━━━━━━━%0A▪️%20Nama:%20${encodeURIComponent(nama)}%0A▪️%20No.%20Telepon:%20${encodeURIComponent(telepon)}%0A▪️%20No.%20Tiket:%20${nomorTiket}%0A▪️%20Kategori:%20${encodeURIComponent(jenisTiket)}%0A▪️%20Jumlah:%20${jumlahTiket}%20tiket%0A▪️%20Tanggal:%20${encodeURIComponent(formattedDate)}%0A▪️%20Paket:%20${encodeURIComponent(paketWahana)}%0A▪️%20Total:%20Rp%20${totalHarga}%0A━━━━━━━━━━━━━━━%0A%0A💳%20*Pembayaran%20ke:*%0ABank%20BCA%0ANo:%201234567890%0AA/n:%20PT%20Waterpark%20Indonesia%0A%0A📎%20[Mohon%20lampirkan%20bukti%20transfer%20Anda]`;
-            const waNumber = '6285163561411'; // Ganti dengan nomor CS Waterpark
-            const whatsappLink = `https://wa.me/${waNumber}?text=${waMessage}`;
-            
-            // Buka WhatsApp
-            window.open(whatsappLink, '_blank');
-            
-            // Tutup modal pembayaran
-            pembayaranModal.hide();
-        };
-    });
-});
-    </script>
+        });
+        </script>
+        
 </body>
 </html>
