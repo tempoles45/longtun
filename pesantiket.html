@@ -83,6 +83,7 @@
                                         <option value="">Pilih Kategori</option>
                                         <option value="Anak">Anak (3 - 12 tahun) - Rp 25.000</option>
                                         <option value="Dewasa">Dewasa ( >12 tahun) - Rp 35.000</option>
+                                        <option value="Pasport">Longtun pasport 3X - Rp 90.000</option>
                                     </select>
                                 </div>
                                 
@@ -136,13 +137,13 @@
                     <h5>Instruksi Pembayaran:</h5>
                     <p class="mb-2">1. Transfer ke rekening berikut:</p>
                     <p class="mb-3">
-                        <strong>Bank BCA</strong><br>
-                        No. Rekening: 1234567890<br>
-                        A/n: PT Waterpark Indonesia
+                        <strong>Bank Mandiri</strong><br>
+                        No. Rekening: 1610.0138.3597.5<br>
+                        A/n: SILFIANA ARDHIYANTI
                     </p>
                     <p class="mb-2">2. Klik tombol "Kirim Bukti Transfer" di bawah</p>
                     <p class="mb-2">3. Kirim bukti transfer melalui WhatsApp</p>
-                    <p class="mb-0">4. Tunggu CS mengirimkan link tiket Anda</p>
+                    <p class="mb-0">4. Tunggu CS mengirimkan INFO tiket Anda</p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -216,7 +217,8 @@
             function hitungTotalHarga(jenisTiket, jumlahTiket) {
                 const hargaTiket = {
                     'Anak': 25000,
-                    'Dewasa': 35000
+                    'Dewasa': 35000,
+                    'Pasport':90000
                 };
                 
                 return (hargaTiket[jenisTiket] * jumlahTiket).toLocaleString('id-ID');
@@ -265,7 +267,7 @@
         
                     // Set WhatsApp message untuk kirim bukti transfer
                     const waMessage = `Halo%20CS%20Waterpark%2C%0A%0A*KONFIRMASI%20PEMBAYARAN%20TIKET*%0A%0A*Detail%20Pemesanan:*%0A━━━━━━━━━━━━━━━%0A▪️%20Nama:%20${encodeURIComponent(nama)}%0A▪️%20No.%20Telepon:%20${encodeURIComponent(telepon)}%0A▪️%20No.%20Tiket:%20${nomorTiket}%0A▪️%20Kategori:%20${encodeURIComponent(jenisTiket)}%0A▪️%20Jumlah:%20${jumlahTiket}%20tiket%0A▪️%20Tanggal:%20${encodeURIComponent(formattedDate)}%0A▪️%20Total:%20Rp%20${totalHarga}%0A━━━━━━━━━━━━━━━%0A%0A💳%20*Pembayaran%20ke:*%0ABank%20BCA%0ANo:%201234567890%0AA/n:%20PT%20Waterpark%20Indonesia%0A%0A📎%20[Mohon%20lampirkan%20bukti%20transfer%20Anda]`;
-                    const waNumber = '6285163561411'; // Ganti dengan nomor CS Waterpark
+                    const waNumber = '6287816697778'; // Ganti dengan nomor CS Waterpark
                     const whatsappLink = `https://wa.me/${waNumber}?text=${waMessage}`;
                     
                     // Buka WhatsApp
