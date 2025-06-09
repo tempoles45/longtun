@@ -266,7 +266,7 @@
                     });
         
                     // Set WhatsApp message untuk kirim bukti transfer
-                    const waMessage = `Halo%20CS%20Waterpark%2C%0A%0A*KONFIRMASI%20PEMBAYARAN%20TIKET*%0A%0A*Detail%20Pemesanan:*%0A━━━━━━━━━━━━━━━%0A▪️%20Nama:%20${encodeURIComponent(nama)}%0A▪️%20No.%20Telepon:%20${encodeURIComponent(telepon)}%0A▪️%20No.%20Tiket:%20${nomorTiket}%0A▪️%20Kategori:%20${encodeURIComponent(jenisTiket)}%0A▪️%20Jumlah:%20${jumlahTiket}%20tiket%0A▪️%20Tanggal:%20${encodeURIComponent(formattedDate)}%0A▪️%20Total:%20Rp%20${totalHarga}%0A━━━━━━━━━━━━━━━%0A%0A💳%20*Pembayaran%20ke:*%0ABank%20BCA%0ANo:%201234567890%0AA/n:%20PT%20Waterpark%20Indonesia%0A%0A📎%20[Mohon%20lampirkan%20bukti%20transfer%20Anda]`;
+                    const waMessage = `Halo%20CS%20Waterpark%2C%0A%0A*KONFIRMASI%20PEMBAYARAN%20TIKET*%0A%0A*Detail%20Pemesanan:*%0A━━━━━━━━━━━━━━━%0A▪️%20Nama:%20${encodeURIComponent(nama)}%0A▪️%20No.%20Telepon:%20${encodeURIComponent(telepon)}%0A▪️%20No.%20Tiket:%20${nomorTiket}%0A▪️%20Kategori:%20${encodeURIComponent(jenisTiket)}%0A▪️%20Jumlah:%20${jumlahTiket}%20tiket%0A▪️%20Tanggal:%20${encodeURIComponent(formattedDate)}%0A▪️%20Total:%20Rp%20${totalHarga}%0A━━━━━━━━━━━━━━━%0A%0A💳%20*Pembayaran%20ke:*%0ABank%20Mandiri%0ANo:%201610013835975%0AA/n:%20SILFIANA ARDHIYANTI%0A%0A📎%20[Mohon%20lampirkan%20bukti%20transfer%20Anda]`;
                     const waNumber = '6287816697778'; // Ganti dengan nomor CS Waterpark
                     const whatsappLink = `https://wa.me/${waNumber}?text=${waMessage}`;
                     
