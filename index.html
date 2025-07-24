@@ -508,16 +508,7 @@
         function orderNow() {
             window.location.href = "pesantiket.html";
         }
-
-        // Auto reminder after 15 seconds
-        setTimeout(() => {
-            const modal = document.getElementById('popupModal');
-            const overlay = document.getElementById('overlay');
-            if (!overlay.classList.contains('popup-hidden')) {
-                modal.style.animation = 'pulse 0.5s ease-in-out 3';
-            }
-        }, 15000);
-
+        
         // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize sparkle animations
